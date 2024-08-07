@@ -4,13 +4,16 @@
     <title>Live JSON Table</title>
     <style>
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid rgb(0, 0, 0);
             border-collapse: collapse;
         }
         th, td {
             padding: 10px;
         }
     </style>
+    <div id="demo">
+        <button type="button" onclick="fetchData()">Change Content</button>
+    </div>
 </head>
 <body>
 
@@ -52,7 +55,7 @@ function updateTable(data) {
 setInterval(fetchData, 5000);
 
 // Initial fetch
-fetchData();
+//fetchData();
 </script>
 
 </body>
