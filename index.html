@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Live JSON Table</title>
+    <title>Data Table</title>
     <style>
         table, th, td {
-            border: 1px solid rgb(0, 0, 0);
+            border: 1px solid black;
             border-collapse: collapse;
         }
         th, td {
-            padding: 10px;
+            padding: 8px;
         }
     </style>
     <div id="demo">
@@ -16,47 +16,15 @@
     </div>
 </head>
 <body>
+    <h2>Live JSON Table</h2>
+    <table id="data-table">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+    </table>
 
-<h2>Live JSON Table</h2>
-<table id="data-table">
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>City</th>
-    </tr>
-</table>
-
-<script>
-function fetchData() {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-        const data = JSON.parse(this.responseText);
-        updateTable(data);
-    }
-    xhttp.open("GET", "/data");
-    xhttp.send();
-}
-
-function updateTable(data) {
-    const table = document.getElementById('data-table');
-    table.innerHTML = "<tr><th>Name</th><th>Age</th><th>City</th></tr>";  // Reset the table
-
-    data.forEach(item => {
-        const row = `<tr>
-                        <td>${item.name}</td>
-                        <td>${item.age}</td>
-                        <td>${item.city}</td>
-                     </tr>`;
-        table.innerHTML += row;
-    });
-}
-
-// Fetch data every 5 seconds
-setInterval(fetchData, 5000);
-
-// Initial fetch
-//fetchData();
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
